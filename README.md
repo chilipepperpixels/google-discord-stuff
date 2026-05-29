@@ -72,6 +72,7 @@ var webhookUrl = "YOUR_WEBHOOK_URL";
 ## Calendar addition
 - Creates all-day events in Google Calendars on form submission. (From starting date to ending date)
 - Paste the content of  `onFormSubmitWithCalendar.js` into the editor.
+- Create a new .gs file in the project and paste the content of `auth.gs` into the editor. Press RUN and go through the steps in the pop-up window. (Same as before when you gave permissions upon project creation)
 - Continue with the [second step](#2-enable-trigger)
 
 --- 
