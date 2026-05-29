@@ -24,7 +24,7 @@ This project automatically pulls new entries from a Google Form/Sheet and posts 
 
 ---
 
-## Tech Stack
+## Things i used
 
 - Google Apps Script (JavaScript)
 - Google Sheets
@@ -39,8 +39,6 @@ This project automatically pulls new entries from a Google Form/Sheet and posts 
 - Go to **Extensions → Apps Script**
 - Paste `Code.gs` into the editor
 
----
-
 ### 2. Enable Trigger
 In Apps Script:
 - Go to **Triggers (clock icon)**
@@ -48,8 +46,6 @@ In Apps Script:
   - Function: `onFormSubmit`
   - Event source: `From spreadsheet`
   - Event type: `On form submit`
-
----
 
 ### 3. Discord Webhook Setup
 - Go to your Discord server settings
