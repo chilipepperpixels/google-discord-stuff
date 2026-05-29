@@ -1,8 +1,19 @@
 # Google Form to Sheet to Discord
 
-This project automatically pulls new entries from a Google Form/Sheet and posts them to Discord as an embed. When you set your form to store the incoming responses into an existing or new spreadsheet, this project will post the values of the newest row as an embed message through a Discord webhook. Important to note, this will not create messages for already existing entries, only those were created AFTER the addition of the script and triggers will be handled. 
+This project automatically pulls new entries from a Google Form/Sheet and posts them to Discord as an embed.
+
+When you set your form to store incoming responses into an existing or new spreadsheet, this project will post the values of the newest row as a Discord embed using a webhook.
+
+Important note:
+
+This will not create messages for already existing entries, only new submissions made after the script and trigger are set up.
+
 ---
-Disclaimer: This project was inspired by https://github.com/Kelo/Google-Sheets-to-Discord.git but i re-imagined it to fit my personal needs. 
+
+## Disclaimer: 
+This project was inspired by: https://github.com/Kelo/Google-Sheets-to-Discord.git
+It has been reworked and adapted to fit personal requirements.
+
 ---
 
 ## Features
@@ -55,4 +66,43 @@ In Apps Script:
 
 ```js
 var webhookUrl = "YOUR_WEBHOOK_URL";
+```
+---
 
+## Calendar addition
+- Creates all-day events in Google Calendars on form submission. (From starting date to ending date)
+- Paste the content of  `onFormSubmitWithCalendar.js` into the editor.
+- Continue with the [second step](#2-enable-trigger)
+
+--- 
+
+# Circumventing Discord webhook limitations
+
+Due to Discord webhook limitations, i had to look for a different avenues to ensure my script would always execute the way i want. To achieve this, i used Cloudflare workers instead of direct Discord webhook links. It's fairly easy to set up.
+
+---
+
+## What it does
+Cloudflare Worker acts as a relay between the Google Apps Script and Discord.  
+It forwards webhook payloads and adds retry + rate-limit handling.
+This improves reliability and avoids Discord blocking Google IP ranges.
+
+## Features
+- Handles Discord rate limits (429)
+- Retries failed requests automatically
+- Prevents Google IP blocking (Cloudflare 1015 issue)
+- Acts as a stable relay layer
+- Serverless (no backend needed)
+
+## Setup Instructions
+- Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
+- Open Workers & Pages  
+- Click Create Worker
+- Choose "Hello World" template
+- Add a custom URL to the link which you will use as your webhook URL.
+- Replace the worker's code with the content of `worker.js`.
+- Deploy.
+- Paste the worker URL into:
+```js
+var webhookUrl = "YOUR_WEBHOOK_URL";
+```
