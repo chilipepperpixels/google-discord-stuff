@@ -1,18 +1,18 @@
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
+
+    //const myWebhookURL = env.WEBHOOK_URL; you either do this way or inside the fetch() in line 15. 
 
     if (request.method !== "POST") {
       return new Response("Only POST allowed", { status: 405 });
     }
 
-    const discordWebhook =
-      "WEBHOOK_URL_HERE"; // Replace with your Discord webhook URL
-
+    
     try {
 
       const body = await request.text();
 
-      const response = await fetch(discordWebhook, {
+      const response = await fetch(env.WEBHOOK_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
