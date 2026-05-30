@@ -103,8 +103,10 @@ This improves reliability and avoids Discord blocking Google IP ranges.
 - Choose "Hello World" template
 - Add a custom URL to the link which you will use as your webhook URL.
 - Replace the worker's code with the content of `worker.js`.
-- Deploy.
-- Paste the worker URL into:
-```js
-var webhookUrl = "YOUR_WEBHOOK_URL";
-```
+- Deploy
+- Go back to your Worker's page and click Settings
+- Variables and Secrets → + Add button
+   - Type = Secret
+   - Variable name = WEBHOOK_URL
+   - Value = "Your webhook link goes in here"
+   - Deploy
