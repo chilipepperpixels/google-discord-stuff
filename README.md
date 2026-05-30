@@ -67,7 +67,7 @@ In Apps Script:
    - Script Properties:
       - Property = WEBHOOK_URL
       - Value = "Your webhook link goes in here"
-     <imgscr="https://i.imgur.com/lPMHC6D.png">
+     <img scr="https://i.imgur.com/lPMHC6D.png">
 
 This way your webhook link is stored in a secure variable that only you can see.      
 
