@@ -61,13 +61,14 @@ In Apps Script:
 
 ### 3. Discord Webhook Setup
 - Go to your Discord server settings
-- Create a webhook
-- Paste the webhook URL into:
+- Create a webhook and copy the link
+- In App Script:
+   - Project Settings (cogwheel icon)
+   - Script Properties:
+      - Property = WEBHOOK_URL
+      - Value = "Your webhook link goes in here"
 
-```js
-var webhookUrl = "YOUR_WEBHOOK_URL";
-```
----
+This way your webhook link is stored in a secure variable that only you can see.      
 
 ## Calendar addition
 - Creates all-day events in Google Calendars on form submission. (From starting date to ending date)
