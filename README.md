@@ -78,9 +78,9 @@ This way your webhook link is stored in a secure variable that only you can see.
 
 --- 
 
-# Circumventing Discord webhook limitations
+# Circumventing Discord's limitations
 
-Due to Discord webhook limitations, i had to look for a different avenues to ensure my script would always execute the way i want. To achieve this, i used Cloudflare workers instead of direct Discord webhook links. It's fairly easy to set up.
+Due to Discord webhook limitations, i had to look for different avenues to ensure my script would always execute the way i want. To achieve this, i used Cloudflare workers instead of direct Discord webhook links. It's fairly easy to set up.
 
 ---
 
