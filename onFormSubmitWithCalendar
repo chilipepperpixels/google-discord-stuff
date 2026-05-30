@@ -1,5 +1,8 @@
 function onFormSubmit(e) {
 
+  const scriptProperties = PropertiesService.getScriptProperties();
+  const myWebhookURL = scriptProperties.getProperty('WEBHOOK_URL');
+
   try {
 
     if (!e || !e.values) {
@@ -65,8 +68,6 @@ function onFormSubmit(e) {
       embeds: [embed]
     });
 
-    var webhookUrl =
-      "WEBHOOK_URL_HERE"; // Change to your Discord webhook URL or Cloudflare worker URL
 
     var options = {
       method: "post",
@@ -78,7 +79,7 @@ function onFormSubmit(e) {
     // Retry system
     for (var attempt = 1; attempt <= 3; attempt++) {
 
-      var response = UrlFetchApp.fetch(webhookUrl, options);
+      var response = UrlFetchApp.fetch(myWebhookURL, options);
 
       var code = response.getResponseCode();
 
